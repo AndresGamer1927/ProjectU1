@@ -1,12 +1,10 @@
 <?php
 session_start();
-if (isset($_POST['name1'])) {
-    if ($_POST['name1'] != "administrador" || $_POST['passw'] != "asd") {
-        header("Location:login.php");
-    }
+if ($_SESSION["newUser"] == 'asd') {
 } else {
-    header("Location:login.php");
+    header("index.php");
 }
+
 ?>
 
 <!doctype html>
@@ -30,7 +28,9 @@ if (isset($_POST['name1'])) {
 </head>
 
 <body>
-
+    <h1>
+        Administrador
+    </h1>
 </body>
 
 </html>

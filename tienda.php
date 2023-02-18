@@ -1,30 +1,9 @@
 <?php
 session_start();
-if (isset($_POST['name1'])) {
-    if ($_POST['name1'] != "cliente" || $_POST['passw'] != "123") {
-        header("Location:login.php");
-    }
+if ($_SESSION["newUser"] == '123') {
 } else {
-    header("Location:login.php");
+    header("index.php");
 }
-$carrito_mio = $_SESSION['carrito'];
-$_SESSION['carrito'] = $carrito_mio;
-
-$totalcantidad = 0;
-// contamos nuestro carrito
-if (isset($_SESSION['carrito'])) {
-    for ($i = 0; $i <= count($carrito_mio) - 1; $i++) {
-
-        if ($carrito_mio[$i] != NULL) {
-            $total_cantidad = $carrito_mio["cantidad"];
-            $total_cantidad++;
-            $totalcantidad += $total_cantidad;
-        }
-    }
-}
-
-?>
-<?php
 
 ?>
 
@@ -100,49 +79,7 @@ if (isset($_SESSION['carrito'])) {
                         <div>
                             <div class="p-2">
                                 <ul class="list-group mb-3">
-                                    <?php
-                                    if (isset($_SESSION['carrito'])) {
-                                        $total = 0;
-                                        for ($i = 0; $i <= count($carrito_mio) - 1; $i++) {
-                                            if ($carrito_mio[$i] != NULL) {
 
-                                    ?>
-                                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                    <div class="row col-12">
-                                                        <div class="col-6 p-0" style="text-align: left; color: #000000;">
-                                                            <h6 class="my-0">Cantidad:
-                                                                <?php
-                                                                echo $carrito_mio[$i]['cantidad']
-                                                                ?> : <?php
-                                                                        echo $carrito_mio[$i]['titulo'];
-                                                                        // echo substr($carrito_mio[$i]['titulo'],0,10); echo utf8_decode($titulomostrado)."..."; 
-                                                                        ?></h6>
-                                                        </div>
-                                                        <div class="col-6 p-0" style="text-align: right; color: #000000;">
-                                                            <span style="text-align: right; color: #000000;"><?php echo $carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad'];    ?> €</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                    <?php
-                                                $total = $total + ($carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']);
-                                            }
-                                        }
-                                    }
-                                    ?>
-                                    <li class="list-group-item d-flex justify-content-between">
-                                        <span style="text-align: left; color: #000000;">Total (EUR)</span>
-                                        <strong style="text-align: left; color: #000000;">
-                                            <?php
-                                            if (isset($_SESSION['carrito'])) {
-                                                $total = 0;
-                                                for ($i = 0; $i <= count($carrito_mio) - 1; $i++) {
-                                                    if ($carrito_mio[$i] != NULL) {
-                                                        $total = $total + ($carrito_mio[$i]['precio'] * $carrito_mio[$i]['cantidad']);
-                                                    }
-                                                }
-                                            }
-                                            echo $total; ?> €</strong>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -173,7 +110,7 @@ if (isset($_SESSION['carrito'])) {
                     <input name="precio" type="hidden" id="precio" value="5860" />
                     <input name="titulo" type="hidden" id="titulo" value="articulo 1" />
                     <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2" />
-                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00071171954889l.jpg" class="card-img-top" alt="...">
+                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984265135l.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Consola Xbox Series S 512 GB Digital Blanco</h5>
                         <p class="card-text">Precio $5,860.00</p>
@@ -189,7 +126,7 @@ if (isset($_SESSION['carrito'])) {
                     <input name="precio" type="hidden" id="precio" value="14449" />
                     <input name="titulo" type="hidden" id="titulo" value="articulo 2" />
                     <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2" />
-                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984265135l.jpg" class="card-img-top" alt="...">
+                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00071171954889l.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Consola PlayStation 5 </h5>
                         <p class="card-text">Precio $14,499.00</p>
