@@ -48,7 +48,7 @@ $_SESSION["newUser"] = "login";
                     </div>
 
                     <div class="pt-1 mb-4">
-                      <input type="summit" name="entrar" class="btn btn-dark btn-lg btn-block" value="ENTRAR">
+                      <input type="submit" name="entrar" class="btn btn-dark btn-lg btn-block" value="ENTRAR">
                     </div>
                   </form>
                   <?php include "verificar.php"; ?>

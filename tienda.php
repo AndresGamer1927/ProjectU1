@@ -25,7 +25,7 @@ if ($_SESSION["newUser"] == '123') {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -47,8 +47,7 @@ if ($_SESSION["newUser"] == '123') {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: red;"><i class="fas fa-shopping-cart"></i>
-                            <?php  ?>
+                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: black;"><i class="fas fa-shopping-cart"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -68,29 +67,28 @@ if ($_SESSION["newUser"] == '123') {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">carrito</h5>
+                    <h5 class="modal-title" id="Carrito123">carrito</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div>
+                    <div id="numero" class="p-2">
+                        <ul class="list-group mb-3">
 
 
-
-                    <div class="modal-body">
-                        <div>
-                            <div class="p-2">
-                                <ul class="list-group mb-3">
-
-                                </ul>
-                            </div>
-                        </div>
+                        </ul>
                     </div>
-
-
-
                 </div>
+                <main>
+                    <div id="contenedor" class="contenedor"></div>
+                </main>
+                <div id="contenedorCompra">
+                    <div class="informacionCompra" id="informacionCompra"></div>
+                </div>
+                <div class="productosCompra" id="productosCompra"></div>
+                <div class="total" id="total"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <a type="button" class="btn btn-primary" href="deletecart.php">Vaciar carrito</a>
+                    <a type="button" class="btn btn-primary">Vaciar carrito</a>
                 </div>
             </div>
         </div>
@@ -105,68 +103,58 @@ if ($_SESSION["newUser"] == '123') {
     <div class="container mt-5">
         <div class="row" style="justify-content: center;">
 
-            <div class="card m-4" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post" action="carrito.php">
-                    <input name="precio" type="hidden" id="precio" value="5860" />
-                    <input name="titulo" type="hidden" id="titulo" value="articulo 1" />
-                    <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2" />
+            <div class="contenedor" id="contenedor" style="width: 18rem;">
+                <form id="formulario" name="formulario" method="post">
                     <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984265135l.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="informacion">
                         <h5 class="card-title">Consola Xbox Series S 512 GB Digital Blanco</h5>
-                        <p class="card-text">Precio $5,860.00</p>
-                        <button class="btn btn-primary" type="submit"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        <p class="precio">Precio $5,860.00</p>
+                        <button> Añadir al carrito</button>
                     </div>
                 </form>
             </div>
 
 
 
-            <div class="card m-4" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post" action="carrito.php">
-                    <input name="precio" type="hidden" id="precio" value="14449" />
-                    <input name="titulo" type="hidden" id="titulo" value="articulo 2" />
-                    <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2" />
+            <div class="contenedor" id="contenedor" style="width: 18rem;">
+                <form id="formulario" name="formulario" method="post">
                     <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00071171954889l.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Consola PlayStation 5 </h5>
-                        <p class="card-text">Precio $14,499.00</p>
-                        <button class="btn btn-primary" type="submit"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                    <div class="informacion">
+                        <h5 class="titulo">Consola PlayStation 5 </h5>
+                        <p class="precio">Precio $14,499.00</p>
+                        <button> Añadir al carrito</button>
                     </div>
                 </form>
             </div>
 
 
-            <div class="card m-4" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post" action="carrito.php">
-                    <input name="precio" type="hidden" id="precio" value="5481" />
-                    <input name="titulo" type="hidden" id="titulo" value="articulo 3" />
-                    <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2" />
+            <div class="contenedor" id="contenedor" style="width: 18rem;">
+                <form id="formulario" name="formulario" method="post">
                     <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00004549688217l.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="informacion">
                         <h5 class="card-title">Consola Nintendo Switch Neon V 1.1</h5>
-                        <p class="card-text">Precio $5,481.00</p>
-                        <button class="btn btn-primary" type="submit"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        <p class="precio">Precio $5,481.00</p>
+                        <button> Añadir al carrito</button>
                     </div>
                 </form>
             </div>
-            <div class="card m-4" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post" action="carrito.php">
-                    <input name="precio" type="hidden" id="precio" value="6999" />
-                    <input name="titulo" type="hidden" id="titulo" value="articulo 3" />
-                    <input name="cantidad" type="hidden" id="cantidad" value="1" class="pl-2" />
+            <div class="contenedor" id="contenedor" style="width: 18rem;">
+                <form id="formulario" name="formulario" method="post">
                     <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984261392l.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="informacion">
                         <h5 class="card-title">Control Inalámbrico Xbox One Elite Series 2 Negro</h5>
-                        <p class="card-text">Precio $6,999.00</p>
-                        <button class="btn btn-primary" type="submit"><i class="fas fa-shopping-cart"></i> Añadir al carrito</button>
+                        <p class="precio">Precio $6,999.00</p>
+                        <button>Añadir al carrito</button>
                     </div>
                 </form>
             </div>
+
 
         </div>
     </div>
     <!-- END ARTICULOS -->
 
+    <script src="carrito.js"></script>
 </body>
 
 </html>
