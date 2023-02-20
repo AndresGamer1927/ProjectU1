@@ -25,10 +25,9 @@ if ($_SESSION["newUser"] == '123') {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
 
@@ -38,19 +37,18 @@ if ($_SESSION["newUser"] == '123') {
 
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #22DA21;">
+    <nav class="navbar navbar-expand-lg " style="background-color: #22DA21;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Tiendita</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: black;"><i class="fas fa-shopping-cart"></i>
+                    <li>
+                        <a id="elcarro" class="nav-link" data-bs-toggle="modal" data-bs-target="#modal_cart" style="color: black;"><i class="fas fa-shopping-cart"></i>
+                            <div id="numero">
+                            </div>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li>
                         <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
                     </li>
 
@@ -70,22 +68,8 @@ if ($_SESSION["newUser"] == '123') {
                     <h5 class="modal-title" id="Carrito123">carrito</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div>
-                    <div id="numero" class="p-2">
-                        <ul class="list-group mb-3">
 
 
-                        </ul>
-                    </div>
-                </div>
-                <main>
-                    <div id="contenedor" class="contenedor"></div>
-                </main>
-                <div id="contenedorCompra">
-                    <div class="informacionCompra" id="informacionCompra"></div>
-                </div>
-                <div class="productosCompra" id="productosCompra"></div>
-                <div class="total" id="total"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <a type="button" class="btn btn-primary">Vaciar carrito</a>
@@ -97,64 +81,71 @@ if ($_SESSION["newUser"] == '123') {
 
 
 
-
-
     <!-- ARTICULOS -->
-    <div class="container mt-5">
-        <div class="row" style="justify-content: center;">
-
-            <div class="contenedor" id="contenedor" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post">
-                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984265135l.jpg" class="card-img-top" alt="...">
-                    <div class="informacion">
-                        <h5 class="card-title">Consola Xbox Series S 512 GB Digital Blanco</h5>
-                        <p class="precio">Precio $5,860.00</p>
-                        <button> Añadir al carrito</button>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div class="contenedor" id="contenedor" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post">
-                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00071171954889l.jpg" class="card-img-top" alt="...">
-                    <div class="informacion">
-                        <h5 class="titulo">Consola PlayStation 5 </h5>
-                        <p class="precio">Precio $14,499.00</p>
-                        <button> Añadir al carrito</button>
-                    </div>
-                </form>
-            </div>
-
-
-            <div class="contenedor" id="contenedor" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post">
-                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00004549688217l.jpg" class="card-img-top" alt="...">
-                    <div class="informacion">
-                        <h5 class="card-title">Consola Nintendo Switch Neon V 1.1</h5>
-                        <p class="precio">Precio $5,481.00</p>
-                        <button> Añadir al carrito</button>
-                    </div>
-                </form>
-            </div>
-            <div class="contenedor" id="contenedor" style="width: 18rem;">
-                <form id="formulario" name="formulario" method="post">
-                    <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984261392l.jpg" class="card-img-top" alt="...">
-                    <div class="informacion">
-                        <h5 class="card-title">Control Inalámbrico Xbox One Elite Series 2 Negro</h5>
-                        <p class="precio">Precio $6,999.00</p>
-                        <button>Añadir al carrito</button>
-                    </div>
-                </form>
-            </div>
-
-
+    <div class="row" style="justify-content: center;">
+        <main>
+            <div id="contenedor" class="contenedor"></div>
+        </main>
+        <div id="contenedorCompra">
+            <div class="informacionCompra" id="informacionCompra"></div>
         </div>
+        <div class="productosCompra" id="productosCompra"></div>
+        <div class="total" id="total"></div>
+
     </div>
+
     <!-- END ARTICULOS -->
 
-    <script src="carrito.js"></script>
+    <!-- ya no sirve? 
+<div class="contenedor" id="contenedor" style="width: 18rem;">
+            <form id="formulario" name="formulario" method="post">
+                <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984265135l.jpg" class="card-img-top" alt="...">
+                <div class="informacion">
+                    <h5 class="card-title">Consola Xbox Series S 512 GB Digital Blanco</h5>
+                    <p class="precio">Precio $5,860.00</p>
+                    <button> Añadir al carrito</button>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="contenedor" id="contenedor" style="width: 18rem;">
+            <form id="formulario" name="formulario" method="post">
+                <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00071171954889l.jpg" class="card-img-top" alt="...">
+                <div class="informacion">
+                    <h5 class="titulo">Consola PlayStation 5 </h5>
+                    <p class="precio">Precio $14,499.00</p>
+                    <button> Añadir al carrito</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="contenedor" id="contenedor" style="width: 18rem;">
+            <form id="formulario" name="formulario" method="post">
+                <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00004549688217l.jpg" class="card-img-top" alt="...">
+                <div class="informacion">
+                    <h5 class="card-title">Consola Nintendo Switch Neon V 1.1</h5>
+                    <p class="precio">Precio $5,481.00</p>
+                    <button> Añadir al carrito</button>
+                </div>
+            </form>
+        </div>
+        <div class="contenedor" id="contenedor" style="width: 18rem;">
+            <form id="formulario" name="formulario" method="post">
+                <img src="https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:best/mg/gm/1p/images/product-images/img_large/00088984261392l.jpg" class="card-img-top" alt="...">
+                <div class="informacion">
+                    <h5 class="card-title">Control Inalámbrico Xbox One Elite Series 2 Negro</h5>
+                    <p class="precio">Precio $6,999.00</p>
+                    <button>Añadir al carrito</button>
+                </div>
+            </form>
+        </div>
+
+-->
+
+    <script src="archivosJS/carrito.js"></script>
 </body>
 
 </html>

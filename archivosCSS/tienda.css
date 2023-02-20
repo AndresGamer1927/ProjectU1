@@ -1,0 +1,28 @@
+body {
+    width: 100%;
+    font-family: Verdana, Tahoma, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+margin-bottom: 2rem;
+text-align: center;
+}
+.content {
+width: 40%;
+margin: 0 auto;
+}
+canvas {
+max-width: 100%;
+}
+
+.carrito{
+    filter: invert(100%);
+    width: 45px;
+    height: auto;
+    position: absolute;
+    top: 14px;
+    cursor: pointer;
+}

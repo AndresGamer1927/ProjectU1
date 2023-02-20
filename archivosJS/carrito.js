@@ -59,9 +59,23 @@ function visualizarProductos(){
     for(let i = 0; i < productos.length; i++){
         console.log(productos[i].urlImagen)
         if(productos[i].existencia > 0){
-            contenedor.innerHTML += `<div><img src="${productos[i].urlImagen}"><div class="informacion"><p>${productos[i].nombre}</p><p class="precio">$${productos[i].valor}</p><button onclick=comprar(${i})>Comprar</button></div></div>`
+            contenedor.innerHTML += `<div>
+                    <img src="${productos[i].urlImagen}" class="card-img-top" alt="...">
+                    <div class="informacion">
+                        <p class="card-title">${productos[i].nombre}</p>
+                        <p class="precio">Precio $${productos[i].valor}</p>
+                        <button onclick=comprar(${i})>Comprar</button>
+                    </div>
+                </div>`
         } else{
-            contenedor.innerHTML += `<div><img src="${productos[i].urlImagen}"><div class="informacion"><p>${productos[i].nombre}</p><p class="precio">$${productos[i].valor}</p><p class="soldOut">Sold Out</p></div></div>`
+            contenedor.innerHTML += `<div>
+                <img src="${productos[i].urlImagen}" class="card-img-top" alt="...">
+                <div class="informacion">
+                    <p class="card-title">${productos[i].nombre}</p>
+                    <p class="precio">Precio $${productos[i].valor}</p>
+                    <p class="soldOut">Sold Out</p>
+                </div>
+            </div>`
         }
 
     }
@@ -89,7 +103,7 @@ function comprar(indice){
     return lista
 }
 
-carrito.addEventListener("click", function(){
+elcarro.addEventListener("click", function(){
     body.style.overflow = "hidden"
     contenedorCompra.classList.remove('none')
     contenedorCompra.classList.add('contenedorCompra')
@@ -97,16 +111,12 @@ carrito.addEventListener("click", function(){
     mostrarElementosLista()
 })
 
-salir.addEventListener("click",function(){
-    window.location.href = "./index.php"
-})
-
 
 function mostrarElementosLista(){
     productosCompra.innerHTML = ""
     valortotal = 0
     for(let i=0; i<lista.length; i++){
-        productosCompra.innerHTML += `<div><div class="img"><button onclick=eliminar(${i}) class="botonTrash"><img src="https://icons8.com/icon/iTwBvHZkjGQ6/ecommerce"></button><p>${lista[i].nombre}</p></div><p> $${lista[i].precio}</p></div>`
+        productosCompra.innerHTML += `<div><div class="img"><button onclick=eliminar(${i}) class="botonTrash"><img src="imagenes/elim.png"></button><h5>${lista[i].nombre}</h5></div><p> $${lista[i].precio}</p></div>`
         valortotal += parseInt(lista[i].precio)
     }
     total.innerHTML = `<p>Valor Total</p> <p><span>$${valortotal}</span></p>`
@@ -132,10 +142,3 @@ function eliminar(indice){
     visualizarProductos()
     mostrarElementosLista()
 }
-
-x.addEventListener("click", function(){
-    body.style.overflow = "auto"
-    contenedorCompra.classList.add('none')
-    contenedorCompra.classList.remove('contenedorCompra')
-    informacionCompra.classList.remove('informacionCompra')
-})
